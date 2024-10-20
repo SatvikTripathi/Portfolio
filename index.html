@@ -12,32 +12,29 @@
             font-family: Arial, sans-serif;
             background-color: black;
             color: white;
-            transform: scale(0.75);
-            transform-origin: top left;
         }
         .container-fluid {
             display: flex;
-            width: 133%;
         }
         /* Left Frame */
         .left-frame {
-            width: 25%;
+            width: 30%;
             background-color: #222;
             padding: 30px;
             text-align: center;
         }
         .left-frame h1 {
-            font-size: 2.5rem;
+            font-size: 2.0rem;
             margin-bottom: 10px;
         }
         .left-frame p {
-            font-size: 1.2rem;
+            font-size: 1.0rem;
             margin-bottom: 20px;
         }
         .left-frame .profile-links a {
             display: inline-block;
             margin: 15px;
-            font-size: 2rem;
+            font-size: 1.5rem;
             color: white;
         }
         .left-frame hr {
@@ -45,11 +42,11 @@
         }
         /* Right Frame */
         .right-frame {
-            width: 75%;
+            width: 70%;
             padding: 30px;
         }
         .section-title {
-            font-size: 2.5rem; /* Increased font size */
+            font-size: 2.0rem; /* Increased font size */
             margin-bottom: 20px;
             color: white;
         }
@@ -62,16 +59,16 @@
         .card-header {
             font-weight: bold;
             background-color: #444;
-            font-size: 1.5rem; /* Increased font size */
+            font-size: 1.2rem; /* Increased font size */
         }
         .card-body h5 {
-            font-size: 1.5rem; /* Increased font size */
+            font-size: 1.2rem; /* Increased font size */
         }
         .card-body p {
-            font-size: 1.0rem; /* Increased font size */
+            font-size: 0.8rem; /* Increased font size */
         }
         .card-body a {
-            font-size: 1.0rem; /* Increased font size */
+            font-size: 0.8rem; /* Increased font size */
         }
         .card a {
             color: white;
@@ -83,11 +80,20 @@
         }
         .skills-list li {
             margin-bottom: 10px;
-            font-size: 1.2rem; /* Slight increase in font size */
+            font-size: 1.0rem; /* Slight increase in font size */
         }
         .card-img-top {
             height: auto;
             width: 100%;
+        }
+        .skills-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .skills-list li {
+            margin-bottom: 10px;
+            font-size: 0.8rem; /* Matching font size with other body text */
         }
     </style>
 </head>
@@ -103,10 +109,10 @@
                 <a href="https://www.kaggle.com/satviktripathi" target="_blank"><i class="fab fa-kaggle"></i></a>
             </div>
             <hr>
-            <h2>About Me</h2>
+            <h3>About Me</h3>
             <p>I am a final-year Electronics and Communications Engineering undergraduate at Madan Mohan Malaviya University of Technology, Gorakhpur, with hands-on experience in Deep Learning, Natural Language Processing (NLP), Data Science, and GIS.  I am passionate about applying AI/ML to develop solutions to real world problems.</p>
             <hr>
-            <h2>Skills</h2>
+            <h3>Skills</h3>
             <ul class="skills-list">
                 <li>Python</li>
                 <li>TensorFlow & Keras</li>
@@ -121,7 +127,7 @@
         <!-- Right Frame -->
         <div class="right-frame">
             <!-- Experience Section -->
-            <h2 class="section-title">Experience</h2>
+            <h3 class="section-title">Experience</h3>
             <div class="row">
                 <div class="col-md-6">
                     <div class="card">
@@ -143,8 +149,8 @@
                             <h5 class="card-title">Data Science Intern</h5>
                             <p class="card-text">Duration: February 2024 - May 2024</p>
                             <p class="card-text">Worked on a project involving the development of a sentiment analysis model based on Google Reviews collected through web scraping tools like Selenium.</p>
-                            <p class="card-text">The reviews were pre-processed using various text preprocessing techniques, like removing stop words, punctuation, and special characters, followed by tokenization and lemmatization.</p>
-                            <p class="card-text"> Latent Dirichlet Allocation (LDA) was applied to uncover hidden topics in the reviews, followed by using Word clouds and other visualizations were created to display the most frequent and significant terms in the reviews, giving a clear picture of user sentiment.</p>
+                            <p class="card-text">The reviews were pre-processed using various text preprocessing techniques, like removing stop words, punctuations and special characters, followed by tokenization and lemmatization.</p>
+                            <p class="card-text"> Latent Dirichlet Allocation (LDA) was applied to uncover hidden topics in the reviews then, Word Clouds and other visualizations were created to display the most frequent and significant terms in the reviews, giving a clear picture of user sentiment.</p>
                             <a href="#" class="btn btn-primary" target="_blank">Certificate</a>
                         </div>
                     </div>
@@ -152,14 +158,16 @@
             </div>
 
             <!-- Project Section -->
-            <h2 class="section-title">Project</h2>
+            <h3 class="section-title">Project</h3>
             <div class="card">
                 <img src="screenshots\book recommeder 2.png" class="card-img-top" alt="Project Image">
                 <div class="card-body">
                     <h5 class="card-title">Book Recommder System</h5>
                     <p class="card-text">Developed a Book Recommender System that provides personalized book recommendations to users based on two different approaches:
+                        <ul class="skills-list">
                         <li>Popularity-Based Recommender: Displaying top 100 highest rated books of all time.</li>
                         <li>Collaborative Filtering-Based Recommender: Helping the user find a list of books most similar to a book of their liking.</li>
+                        </ul>
                     </p>
                     <p class="card-text"><a href="https://www.kaggle.com/datasets/arashnic/book-recommendation-dataset">Book-recommendation-dataset</a> from kaggle, containing 1,149,780 ratings (explicit / implicit) on 271,379 books by 278,858 users has been used in this project to build both systems.</p>
                     <p class="card-text">Utilized Python, Flask for web development, Pandas and NumPy for data manipulation, and Scikit-learn for implementing collaborative filtering algorithms. The system is deployed using Flask to create an intuitive, user-friendly interface.</p>
@@ -170,7 +178,7 @@
             </div>
 
             <!-- Certifications Section -->
-            <h2 class="section-title">Certifications</h2>
+            <h3 class="section-title">Certifications</h3>
             <ul>
                 <li><a href="https://drive.google.com/file/d/1MACAVJ766XryJanRJqGoYZ7oX2BZAAD8/view?usp=drive_link" target="_blank">Coursera: Unsupervised Learning, Recommenders, Reinforcement Learning</a></li>
                 <li><a href="https://drive.google.com/file/d/17WltnbDowpR6rOOmnPwbqOlzDIKHX4jI/view?usp=sharing" target="_blank">Coursera: Advanced Learning Algorithms</a></li>
