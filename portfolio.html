@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Satvik Tripathi Portfolio</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: black;
+            color: white;
+            transform: scale(0.75);
+            transform-origin: top left;
+        }
+        .container-fluid {
+            display: flex;
+            width: 133%;
+        }
+        /* Left Frame */
+        .left-frame {
+            width: 25%;
+            background-color: #222;
+            padding: 30px;
+            text-align: center;
+        }
+        .left-frame h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        .left-frame p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+        .left-frame .profile-links a {
+            display: inline-block;
+            margin: 15px;
+            font-size: 2rem;
+            color: white;
+        }
+        .left-frame hr {
+            border-color: #444;
+        }
+        /* Right Frame */
+        .right-frame {
+            width: 75%;
+            padding: 30px;
+        }
+        .section-title {
+            font-size: 2.5rem; /* Increased font size */
+            margin-bottom: 20px;
+            color: white;
+        }
+        /* Experience and Project Cards */
+        .card {
+            background-color: #333;
+            color: white;
+            margin-bottom: 20px;
+        }
+        .card-header {
+            font-weight: bold;
+            background-color: #444;
+            font-size: 1.5rem; /* Increased font size */
+        }
+        .card-body h5 {
+            font-size: 1.5rem; /* Increased font size */
+        }
+        .card-body p {
+            font-size: 1.0rem; /* Increased font size */
+        }
+        .card-body a {
+            font-size: 1.0rem; /* Increased font size */
+        }
+        .card a {
+            color: white;
+        }
+        /* Skills List */
+        .skills-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        .skills-list li {
+            margin-bottom: 10px;
+            font-size: 1.2rem; /* Slight increase in font size */
+        }
+        .card-img-top {
+            height: auto;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <!-- Left Frame -->
+        <div class="left-frame">
+            <h1>Satvik Tripathi</h1>
+            <p>Final Year ECE Student @ MMMUT, Gorakhpur</p>
+            <div class="profile-links">
+                <a href="https://www.linkedin.com/in/satvik-tripathi-3b6579237/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/SatvikTripathi" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://www.kaggle.com/satviktripathi" target="_blank"><i class="fab fa-kaggle"></i></a>
+            </div>
+            <hr>
+            <h2>About Me</h2>
+            <p>I am a final-year Electronics and Communications Engineering undergraduate at Madan Mohan Malaviya University of Technology, Gorakhpur, with hands-on experience in Deep Learning, Natural Language Processing (NLP), Data Science, and GIS.  I am passionate about applying AI/ML to develop solutions to real world problems.</p>
+            <hr>
+            <h2>Skills</h2>
+            <ul class="skills-list">
+                <li>Python</li>
+                <li>TensorFlow & Keras</li>
+                <li>Machine Learning</li>
+                <li>Deep Learning</li>
+                <li>Natural Language Processing</li>
+                <li>Data Visualization</li>
+                <li>DBMS</li>
+            </ul>
+        </div>
+
+        <!-- Right Frame -->
+        <div class="right-frame">
+            <!-- Experience Section -->
+            <h2 class="section-title">Experience</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header">Space Applications Center, ISRO</div>
+                        <div class="card-body">
+                            <h5 class="card-title">Research Intern</h5>
+                            <p class="card-text">Duration: June 2024 - August 2024</p>
+                            <p class="card-text">Developed an end-to-end deep learning-based image segmentation system for extraction of scattered built-up areas from the coastal state of Goa, achieving 96% IoU.</p>
+                            <p class="card-text">Got hands on experience of GIS concepts while working, preparing and pre-processing satellite images with GIS tools like ArcGIS & QGIS.</p>
+                            <p class="card-text">Built and implemented U-Net-based Attention U-Net, GAN U-Net, and MultiRes U-Net models, enhancing the performance of the pre-existing model (IoU 70%) as well as data provided by Environmental Systems Research Institute, Inc. (ESRI).</p>
+                            <a href="https://drive.google.com/file/d/1eHzwL2FMjMzuR9OiPdFDBFPR7DUS7F_X/view" class="btn btn-primary" target="_blank">Certificate</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header">Deep Dive Consulting</div>
+                        <div class="card-body">
+                            <h5 class="card-title">Data Science Intern</h5>
+                            <p class="card-text">Duration: February 2024 - May 2024</p>
+                            <p class="card-text">Worked on a project involving the development of a sentiment analysis model based on Google Reviews collected through web scraping tools like Selenium.</p>
+                            <p class="card-text">The reviews were pre-processed using various text preprocessing techniques, like removing stop words, punctuation, and special characters, followed by tokenization and lemmatization.</p>
+                            <p class="card-text"> Latent Dirichlet Allocation (LDA) was applied to uncover hidden topics in the reviews, followed by using Word clouds and other visualizations were created to display the most frequent and significant terms in the reviews, giving a clear picture of user sentiment.</p>
+                            <a href="#" class="btn btn-primary" target="_blank">Certificate</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project Section -->
+            <h2 class="section-title">Project</h2>
+            <div class="card">
+                <img src="screenshots\book recommeder 2.png" class="card-img-top" alt="Project Image">
+                <div class="card-body">
+                    <h5 class="card-title">Book Recommder System</h5>
+                    <p class="card-text">Developed a Book Recommender System that provides personalized book recommendations to users based on two different approaches:
+                        <li>Popularity-Based Recommender: Displaying top 100 highest rated books of all time.</li>
+                        <li>Collaborative Filtering-Based Recommender: Helping the user find a list of books most similar to a book of their liking.</li>
+                    </p>
+                    <p class="card-text"><a href="https://www.kaggle.com/datasets/arashnic/book-recommendation-dataset">Book-recommendation-dataset</a> from kaggle, containing 1,149,780 ratings (explicit / implicit) on 271,379 books by 278,858 users has been used in this project to build both systems.</p>
+                    <p class="card-text">Utilized Python, Flask for web development, Pandas and NumPy for data manipulation, and Scikit-learn for implementing collaborative filtering algorithms. The system is deployed using Flask to create an intuitive, user-friendly interface.</p>
+                    <p class="card-text"> The system is deployed as a web application, allowing users to interact with the model through a simple Flask-based interface. Integrated GitHub for version control and ensured scalability for larger datasets in future iterations.</p>
+                    <a href="https://github.com/SatvikTripathi/Book-Recommender-System" class="btn btn-primary" target="_blank">GitHub Repo</a>
+                    <a href="https://book-recommender-system-8oig.onrender.com" class="btn btn-primary" target="_blank">Live</a>
+                </div>
+            </div>
+
+            <!-- Certifications Section -->
+            <h2 class="section-title">Certifications</h2>
+            <ul>
+                <li><a href="https://drive.google.com/file/d/1MACAVJ766XryJanRJqGoYZ7oX2BZAAD8/view?usp=drive_link" target="_blank">Coursera: Unsupervised Learning, Recommenders, Reinforcement Learning</a></li>
+                <li><a href="https://drive.google.com/file/d/17WltnbDowpR6rOOmnPwbqOlzDIKHX4jI/view?usp=sharing" target="_blank">Coursera: Advanced Learning Algorithms</a></li>
+                <li><a href="https://drive.google.com/file/d/17WltnbDowpR6rOOmnPwbqOlzDIKHX4jI/view?usp=sharing" target="_blank">GDSC: AI/ML Cyber Security Team </a></li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
