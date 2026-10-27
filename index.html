@@ -1,14 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Satvik Tripathi — AI & Backend Engineer</title>
-    <meta name="description" content="Portfolio of Satvik Tripathi — AI & Backend Engineer specializing in multi-agent systems, RAG architectures, and scalable backend development.">
+    <meta name="description"
+        content="Portfolio of Satvik Tripathi — AI & Backend Engineer specializing in multi-agent systems, RAG architectures, and scalable backend development.">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -40,11 +45,37 @@
             overflow-x: hidden;
         }
 
+        /* ── Three.js Canvases ── */
+        #particles-canvas {
+            position: fixed;
+            top: 0;
+            left: 320px;
+            width: calc(100% - 320px);
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+
+
+        /* ── Scroll Reveal ── */
+        .reveal {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
         a {
             color: var(--accent);
             text-decoration: none;
             transition: color 0.2s;
         }
+
         a:hover {
             color: #8b83ff;
         }
@@ -53,6 +84,7 @@
         .layout {
             display: flex;
             min-height: 100vh;
+            position: relative;
         }
 
         /* ── Sidebar ── */
@@ -68,6 +100,7 @@
             overflow-y: auto;
             display: flex;
             flex-direction: column;
+            z-index: 2;
         }
 
         .sidebar-name {
@@ -111,6 +144,7 @@
             font-size: 1rem;
             transition: all 0.25s;
         }
+
         .social-links a:hover {
             color: var(--accent);
             border-color: var(--accent);
@@ -170,6 +204,7 @@
             transition: all 0.2s;
             cursor: default;
         }
+
         .skill-tag:hover {
             border-color: var(--accent);
             color: var(--text-primary);
@@ -189,6 +224,7 @@
             color: var(--text-secondary);
             margin-bottom: 8px;
         }
+
         .contact-item i {
             color: var(--text-muted);
             width: 16px;
@@ -201,6 +237,8 @@
             flex: 1;
             padding: 48px 56px;
             max-width: 920px;
+            position: relative;
+            z-index: 1;
         }
 
         .section {
@@ -299,6 +337,7 @@
             margin-bottom: 10px;
             transition: all 0.25s;
         }
+
         .exp-project:hover {
             border-color: rgba(108, 99, 255, 0.3);
             background: var(--bg-card-hover);
@@ -344,6 +383,7 @@
             opacity: 0.8;
             transition: opacity 0.2s;
         }
+
         .exp-cert-link:hover {
             opacity: 1;
         }
@@ -356,6 +396,7 @@
             overflow: hidden;
             transition: all 0.3s;
         }
+
         .project-card:hover {
             border-color: rgba(108, 99, 255, 0.3);
             transform: translateY(-2px);
@@ -369,6 +410,7 @@
             opacity: 0.85;
             transition: opacity 0.3s;
         }
+
         .project-card:hover img {
             opacity: 1;
         }
@@ -410,6 +452,7 @@
             transition: all 0.2s;
             cursor: pointer;
         }
+
         .btn-sm:hover {
             color: var(--text-primary);
             border-color: var(--accent);
@@ -427,6 +470,7 @@
             border-bottom: 1px solid var(--border);
             font-size: 0.82rem;
         }
+
         .cert-list li:last-child {
             border-bottom: none;
         }
@@ -438,9 +482,11 @@
             color: var(--text-secondary);
             transition: color 0.2s;
         }
+
         .cert-list li a:hover {
             color: var(--accent);
         }
+
         .cert-list li a i {
             font-size: 0.7rem;
             color: var(--text-muted);
@@ -460,6 +506,7 @@
             padding: 16px 18px;
             transition: border-color 0.2s;
         }
+
         .edu-card:hover {
             border-color: rgba(108, 99, 255, 0.3);
         }
@@ -487,6 +534,7 @@
             .layout {
                 flex-direction: column;
             }
+
             .sidebar {
                 width: 100%;
                 min-width: unset;
@@ -494,16 +542,24 @@
                 position: relative;
                 padding: 32px 24px;
             }
+
             .main {
                 padding: 32px 24px;
             }
+
             .exp-header {
                 flex-direction: column;
                 gap: 2px;
             }
+
+            #particles-canvas {
+                left: 0;
+                width: 100%;
+            }
         }
     </style>
 </head>
+
 <body>
     <div class="layout">
         <!-- ── Sidebar ── -->
@@ -512,9 +568,12 @@
             <p class="sidebar-role"><span>AI & Backend Engineer</span> at Logipod Logistics & SIHO Research</p>
 
             <div class="social-links">
-                <a href="https://www.linkedin.com/in/satvik-tripathi-3b6579237/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                <a href="https://github.com/SatvikTripathi" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
-                <a href="https://www.kaggle.com/satviktripathi" target="_blank" title="Kaggle"><i class="fab fa-kaggle"></i></a>
+                <a href="https://www.linkedin.com/in/satvik-tripathi-3b6579237/" target="_blank" title="LinkedIn"><i
+                        class="fab fa-linkedin-in"></i></a>
+                <a href="https://github.com/SatvikTripathi" target="_blank" title="GitHub"><i
+                        class="fab fa-github"></i></a>
+                <a href="https://www.kaggle.com/satviktripathi" target="_blank" title="Kaggle"><i
+                        class="fab fa-kaggle"></i></a>
                 <a href="mailto:199tripathis@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
             </div>
 
@@ -522,7 +581,9 @@
 
             <p class="sidebar-section-title">About</p>
             <p class="about-text">
-                AI & Backend Engineer with a B.Tech in Electronics and Communication Engineering from MMMUT, Gorakhpur. I build multi-agent RAG systems, LLM-driven automation pipelines, and scalable Flask/FastAPI backends. Experienced across the stack — from NLP extraction engines and real-time APIs to deployment on Azure.
+                AI & Backend Engineer with a B.Tech in Electronics and Communication Engineering from MMMUT, Gorakhpur.
+                I build multi-agent RAG systems, LLM-driven automation pipelines, and scalable Flask/FastAPI backends.
+                Experienced across the stack — from NLP extraction engines and real-time APIs to deployment on Azure.
             </p>
 
             <div class="sidebar-divider"></div>
@@ -609,10 +670,11 @@
         </aside>
 
         <!-- ── Main Content ── -->
+        <canvas id="particles-canvas"></canvas>
         <main class="main">
 
             <!-- Experience -->
-            <section class="section" id="experience">
+            <section class="section reveal" id="experience">
                 <h2 class="section-heading">Experience</h2>
 
                 <div class="exp-timeline">
@@ -626,38 +688,62 @@
                         <div class="exp-role">AI & Backend Engineer (Internship + Full time)</div>
 
                         <div class="exp-project">
-                            <div class="exp-project-name">Multi-Agent Financial RAG System <span style="font-weight:400;color:var(--text-muted);font-size:0.78rem;">— SIHO Research</span></div>
+                            <div class="exp-project-name">Multi-Agent Financial RAG System <span
+                                    style="font-weight:400;color:var(--text-muted);font-size:0.78rem;">— SIHO
+                                    Research</span></div>
                             <ul>
-                                <li>Designed a <strong>multi-agent RAG architecture</strong> (Query, Retriever, Ranker, Answer, Evaluator, Planner) enabling deep reasoning over 7000+ financial documents.</li>
-                                <li>Achieved industry-standard document retrieval accuracy using LLM-based query parsing, cosine similarity search, and semantic ranking.</li>
-                                <li>Optimized embedding generation pipeline with concurrent API calls and chunk merging, reducing OpenAI API costs by ~60%.</li>
-                                <li>Delivered Flask REST APIs with real-time streaming and multi-company query support for financial research automation.</li>
+                                <li>Designed a <strong>multi-agent RAG architecture</strong> (Query, Retriever, Ranker,
+                                    Answer, Evaluator, Planner) enabling deep reasoning over 7000+ financial documents.
+                                </li>
+                                <li>Achieved industry-standard document retrieval accuracy using LLM-based query
+                                    parsing, cosine similarity search, and semantic ranking.</li>
+                                <li>Optimized embedding generation pipeline with concurrent API calls and chunk merging,
+                                    reducing OpenAI API costs by ~60%.</li>
+                                <li>Delivered Flask REST APIs with real-time streaming and multi-company query support
+                                    for financial research automation.</li>
                             </ul>
                         </div>
 
                         <div class="exp-project">
-                            <div class="exp-project-name">Customer-Facing Investment Platform <span style="font-weight:400;color:var(--text-muted);font-size:0.78rem;">— SIHO Research</span></div>
+                            <div class="exp-project-name">Customer-Facing Investment Platform <span
+                                    style="font-weight:400;color:var(--text-muted);font-size:0.78rem;">— SIHO
+                                    Research</span></div>
                             <ul>
-                                <li>Developed Flask REST APIs (40+ endpoints) delivering real-time portfolio tracking, automated P&L, and category-wise allocation analysis for 200+ users.</li>
-                                <li>Integrated Angel One SmartAPI to enable live market order placement directly from the platform.</li>
+                                <li>Developed Flask REST APIs (40+ endpoints) delivering real-time portfolio tracking,
+                                    automated P&L, and category-wise allocation analysis for 200+ users.</li>
+                                <li>Integrated Angel One SmartAPI to enable live market order placement directly from
+                                    the platform.</li>
                             </ul>
                         </div>
 
                         <div class="exp-project">
-                            <div class="exp-project-name">Transport Management System ATLAS <span style="font-weight:400;color:var(--text-muted);font-size:0.78rem;">— Logipod Logistics</span></div>
+                            <div class="exp-project-name">Transport Management System ATLAS <span
+                                    style="font-weight:400;color:var(--text-muted);font-size:0.78rem;">— Logipod
+                                    Logistics</span></div>
                             <ul>
-                                <li>Engineered a modular Flask + PostgreSQL backend (350+ APIs) managing 10,000+ logistics records, deployed on Azure; implemented hierarchical RBAC — first TMS in the space with this permissions model.</li>
-                                <li>Built concurrency-safe LR allocation using atomic transactions, eliminating LR duplication, and added PGTRM-based indexing making the application 60% faster.</li>
-                                <li>Automated PDF generation and archival using LibreOffice and Azure Blob Storage, cutting manual document processing time by 70%.</li>
+                                <li>Engineered a modular Flask + PostgreSQL backend (350+ APIs) managing 10,000+
+                                    logistics records, deployed on Azure; implemented hierarchical RBAC — first TMS in
+                                    the space with this permissions model.</li>
+                                <li>Built concurrency-safe LR allocation using atomic transactions, eliminating LR
+                                    duplication, and added PGTRM-based indexing making the application 60% faster.</li>
+                                <li>Automated PDF generation and archival using LibreOffice and Azure Blob Storage,
+                                    cutting manual document processing time by 70%.</li>
                             </ul>
                         </div>
 
                         <div class="exp-project">
-                            <div class="exp-project-name">Indent Agent — LLM-Driven Booking Automation <span style="font-weight:400;color:var(--text-muted);font-size:0.78rem;">— Logipod Logistics</span></div>
+                            <div class="exp-project-name">Indent Agent — LLM-Driven Booking Automation <span
+                                    style="font-weight:400;color:var(--text-muted);font-size:0.78rem;">— Logipod
+                                    Logistics</span></div>
                             <ul>
-                                <li>Architected an end-to-end LLM-driven automation agent (Flask, LangChain) converting unstructured WhatsApp/email transport requests into live TMS bookings, eliminating manual order entry for ~70% of inbound requests.</li>
-                                <li>Implemented a multi-stage NLP extraction pipeline for freeform, multilingual trucking messages — achieving ~85% extraction accuracy across 50+ real-world messages.</li>
-                                <li>Designed a rules-based pricing engine cross-referencing live client/rate/vehicle master data, cutting manual rate-lookup effort by ~60%.</li>
+                                <li>Architected an end-to-end LLM-driven automation agent (Flask, LangChain) converting
+                                    unstructured WhatsApp/email transport requests into live TMS bookings, eliminating
+                                    manual order entry for ~70% of inbound requests.</li>
+                                <li>Implemented a multi-stage NLP extraction pipeline for freeform, multilingual
+                                    trucking messages — achieving ~85% extraction accuracy across 50+ real-world
+                                    messages.</li>
+                                <li>Designed a rules-based pricing engine cross-referencing live client/rate/vehicle
+                                    master data, cutting manual rate-lookup effort by ~60%.</li>
                             </ul>
                         </div>
                     </div>
@@ -672,11 +758,18 @@
 
                         <div class="exp-project">
                             <ul>
-                                <li>Developed an end-to-end deep learning-based image segmentation system for extraction of scattered built-up areas from the coastal state of Goa, achieving <strong>96% IoU</strong>.</li>
-                                <li>Designed and implemented U-Net-based Attention U-Net, GAN U-Net, and MultiRes U-Net models, enhancing the performance of the pre-existing model (IoU 70%) as well as data provided by ESRI.</li>
-                                <li>Learned and applied concepts of GIS and got hands-on experience with working, preparing and pre-processing satellite images.</li>
+                                <li>Developed an end-to-end deep learning-based image segmentation system for extraction
+                                    of scattered built-up areas from the coastal state of Goa, achieving <strong>96%
+                                        IoU</strong>.</li>
+                                <li>Designed and implemented U-Net-based Attention U-Net, GAN U-Net, and MultiRes U-Net
+                                    models, enhancing the performance of the pre-existing model (IoU 70%) as well as
+                                    data provided by ESRI.</li>
+                                <li>Learned and applied concepts of GIS and got hands-on experience with working,
+                                    preparing and pre-processing satellite images.</li>
                             </ul>
-                            <a href="https://drive.google.com/file/d/1eHzwL2FMjMzuR9OiPdFDBFPR7DUS7F_X/view" class="exp-cert-link" target="_blank"><i class="fas fa-certificate"></i> View Certificate</a>
+                            <a href="https://drive.google.com/file/d/1eHzwL2FMjMzuR9OiPdFDBFPR7DUS7F_X/view"
+                                class="exp-cert-link" target="_blank"><i class="fas fa-certificate"></i> View
+                                Certificate</a>
                         </div>
                     </div>
 
@@ -690,9 +783,13 @@
 
                         <div class="exp-project">
                             <ul>
-                                <li>Built a sentiment analysis pipeline on Selenium-scraped Google Reviews — text preprocessing, LDA topic modeling, and word-cloud visualizations to surface key user sentiment themes.</li>
+                                <li>Built a sentiment analysis pipeline on Selenium-scraped Google Reviews — text
+                                    preprocessing, LDA topic modeling, and word-cloud visualizations to surface key user
+                                    sentiment themes.</li>
                             </ul>
-                            <a href="https://drive.google.com/file/d/1FhImEjh_-F6tu5N5hj4obc1pJ3i9AdEe/view?usp=sharing" class="exp-cert-link" target="_blank"><i class="fas fa-certificate"></i> View Certificate</a>
+                            <a href="https://drive.google.com/file/d/1FhImEjh_-F6tu5N5hj4obc1pJ3i9AdEe/view?usp=sharing"
+                                class="exp-cert-link" target="_blank"><i class="fas fa-certificate"></i> View
+                                Certificate</a>
                         </div>
                     </div>
 
@@ -700,7 +797,7 @@
             </section>
 
             <!-- Education -->
-            <section class="section" id="education">
+            <section class="section reveal" id="education">
                 <h2 class="section-heading">Education</h2>
                 <div class="edu-grid">
                     <div class="edu-card">
@@ -722,32 +819,197 @@
             </section>
 
             <!-- Project (de-emphasized) -->
-            <section class="section" id="projects">
+            <section class="section reveal" id="projects">
                 <h2 class="section-heading">Side Project</h2>
                 <div class="project-card" style="max-width: 480px;">
                     <img src="screenshots/book recommeder 2.png" alt="Book Recommender System screenshot">
                     <div class="project-card-body">
                         <h4>Book Recommender System</h4>
-                        <p>A Flask-based recommender combining popularity-based ranking (top 100 books of all time) and collaborative filtering to suggest similar books. Built on a Kaggle dataset of 1.1M+ ratings across 271K books.</p>
+                        <p>A Flask-based recommender combining popularity-based ranking (top 100 books of all time) and
+                            collaborative filtering to suggest similar books. Built on a Kaggle dataset of 1.1M+ ratings
+                            across 271K books.</p>
                         <div class="project-links">
-                            <a href="https://github.com/SatvikTripathi/Book-Recommender-System" class="btn-sm" target="_blank"><i class="fab fa-github"></i> Repo</a>
-                            <a href="https://book-recommender-system-8oig.onrender.com" class="btn-sm" target="_blank"><i class="fas fa-external-link-alt"></i> Live</a>
+                            <a href="https://github.com/SatvikTripathi/Book-Recommender-System" class="btn-sm"
+                                target="_blank"><i class="fab fa-github"></i> Repo</a>
+                            <a href="https://book-recommender-system-8oig.onrender.com" class="btn-sm"
+                                target="_blank"><i class="fas fa-external-link-alt"></i> Live</a>
                         </div>
                     </div>
                 </div>
             </section>
 
             <!-- Certifications -->
-            <section class="section" id="certifications">
+            <section class="section reveal" id="certifications">
                 <h2 class="section-heading">Certifications</h2>
                 <ul class="cert-list">
-                    <li><a href="https://drive.google.com/file/d/1MACAVJ766XryJanRJqGoYZ7oX2BZAAD8/view?usp=drive_link" target="_blank"><i class="fas fa-arrow-right"></i> Unsupervised Learning, Recommenders, Reinforcement Learning — Coursera</a></li>
-                    <li><a href="https://drive.google.com/file/d/17WltnbDowpR6rOOmnPwbqOlzDIKHX4jI/view?usp=sharing" target="_blank"><i class="fas fa-arrow-right"></i> Advanced Learning Algorithms — Coursera</a></li>
-                    <li><a href="https://drive.google.com/file/d/17WltnbDowpR6rOOmnPwbqOlzDIKHX4jI/view?usp=sharing" target="_blank"><i class="fas fa-arrow-right"></i> GDSC — AI/ML Cyber Security Team</a></li>
+                    <li><a href="https://drive.google.com/file/d/1MACAVJ766XryJanRJqGoYZ7oX2BZAAD8/view?usp=drive_link"
+                            target="_blank"><i class="fas fa-arrow-right"></i> Unsupervised Learning, Recommenders,
+                            Reinforcement Learning — Coursera</a></li>
+                    <li><a href="https://drive.google.com/file/d/17WltnbDowpR6rOOmnPwbqOlzDIKHX4jI/view?usp=sharing"
+                            target="_blank"><i class="fas fa-arrow-right"></i> Advanced Learning Algorithms —
+                            Coursera</a></li>
+                    <li><a href="https://drive.google.com/file/d/17WltnbDowpR6rOOmnPwbqOlzDIKHX4jI/view?usp=sharing"
+                            target="_blank"><i class="fas fa-arrow-right"></i> GDSC — AI/ML Cyber Security Team</a></li>
                 </ul>
             </section>
 
         </main>
     </div>
+
+    <script>
+        /* ═══════════════════════════════════════════════════════════
+           THREE.JS — Particle Constellation Background
+           ═══════════════════════════════════════════════════════════ */
+        (function () {
+            const canvas = document.getElementById('particles-canvas');
+            const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
+            renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+            const scene = new THREE.Scene();
+            const camera = new THREE.PerspectiveCamera(60, 1, 0.1, 1000);
+            camera.position.z = 300;
+
+            const PARTICLE_COUNT = 90;
+            const CONNECT_DIST = 120;
+            const positions = [];
+            const velocities = [];
+
+            // Particles
+            const pGeo = new THREE.BufferGeometry();
+            const pPositions = new Float32Array(PARTICLE_COUNT * 3);
+            for (let i = 0; i < PARTICLE_COUNT; i++) {
+                const x = (Math.random() - 0.5) * 600;
+                const y = (Math.random() - 0.5) * 600;
+                const z = (Math.random() - 0.5) * 200;
+                pPositions[i * 3] = x;
+                pPositions[i * 3 + 1] = y;
+                pPositions[i * 3 + 2] = z;
+                positions.push(new THREE.Vector3(x, y, z));
+                velocities.push(new THREE.Vector3(
+                    (Math.random() - 0.5) * 0.3,
+                    (Math.random() - 0.5) * 0.3,
+                    (Math.random() - 0.5) * 0.1
+                ));
+            }
+            pGeo.setAttribute('position', new THREE.BufferAttribute(pPositions, 3));
+
+            const pMat = new THREE.PointsMaterial({
+                color: 0x6c63ff,
+                size: 2.5,
+                transparent: true,
+                opacity: 0.6,
+                blending: THREE.AdditiveBlending,
+                depthWrite: false,
+            });
+            scene.add(new THREE.Points(pGeo, pMat));
+
+            // Lines
+            const lineGeo = new THREE.BufferGeometry();
+            const MAX_LINES = PARTICLE_COUNT * PARTICLE_COUNT;
+            const linePositions = new Float32Array(MAX_LINES * 6);
+            const lineColors = new Float32Array(MAX_LINES * 6);
+            lineGeo.setAttribute('position', new THREE.BufferAttribute(linePositions, 3));
+            lineGeo.setAttribute('color', new THREE.BufferAttribute(lineColors, 3));
+            lineGeo.setDrawRange(0, 0);
+
+            const lineMat = new THREE.LineBasicMaterial({
+                vertexColors: true,
+                transparent: true,
+                opacity: 0.35,
+                blending: THREE.AdditiveBlending,
+                depthWrite: false,
+            });
+            const lines = new THREE.LineSegments(lineGeo, lineMat);
+            scene.add(lines);
+
+            // Mouse interaction
+            const mouse = new THREE.Vector2(9999, 9999);
+            document.addEventListener('mousemove', (e) => {
+                const rect = canvas.getBoundingClientRect();
+                mouse.x = ((e.clientX - rect.left) / rect.width) * 2 - 1;
+                mouse.y = -((e.clientY - rect.top) / rect.height) * 2 + 1;
+            });
+
+            function resize() {
+                const parent = canvas.parentElement;
+                const w = canvas.clientWidth || parent.clientWidth;
+                const h = window.innerHeight;
+                renderer.setSize(w, h);
+                camera.aspect = w / h;
+                camera.updateProjectionMatrix();
+            }
+            window.addEventListener('resize', resize);
+            resize();
+
+            function animate() {
+                requestAnimationFrame(animate);
+
+                // Move particles
+                const posAttr = pGeo.attributes.position;
+                for (let i = 0; i < PARTICLE_COUNT; i++) {
+                    positions[i].add(velocities[i]);
+                    // Bounce off bounds
+                    ['x', 'y'].forEach((axis, ai) => {
+                        const limit = axis === 'x' ? 300 : 300;
+                        if (positions[i][axis] > limit || positions[i][axis] < -limit) {
+                            velocities[i][axis] *= -1;
+                        }
+                    });
+                    // Mouse repulsion
+                    const mouseWorld = new THREE.Vector3(mouse.x * 300, mouse.y * 300, 0);
+                    const diff = positions[i].clone().sub(mouseWorld);
+                    const dist = diff.length();
+                    if (dist < 80) {
+                        positions[i].add(diff.normalize().multiplyScalar(1.5));
+                    }
+
+                    posAttr.setXYZ(i, positions[i].x, positions[i].y, positions[i].z);
+                }
+                posAttr.needsUpdate = true;
+
+                // Draw connecting lines
+                let lineIdx = 0;
+                const lp = lineGeo.attributes.position;
+                const lc = lineGeo.attributes.color;
+                for (let i = 0; i < PARTICLE_COUNT; i++) {
+                    for (let j = i + 1; j < PARTICLE_COUNT; j++) {
+                        const d = positions[i].distanceTo(positions[j]);
+                        if (d < CONNECT_DIST) {
+                            const alpha = 1 - d / CONNECT_DIST;
+                            const r = 0.42 * alpha, g = 0.39 * alpha, b = 1.0 * alpha;
+                            lp.setXYZ(lineIdx * 2, positions[i].x, positions[i].y, positions[i].z);
+                            lp.setXYZ(lineIdx * 2 + 1, positions[j].x, positions[j].y, positions[j].z);
+                            lc.setXYZ(lineIdx * 2, r, g, b);
+                            lc.setXYZ(lineIdx * 2 + 1, r, g, b);
+                            lineIdx++;
+                        }
+                    }
+                }
+                lineGeo.setDrawRange(0, lineIdx * 2);
+                lp.needsUpdate = true;
+                lc.needsUpdate = true;
+
+                renderer.render(scene, camera);
+            }
+            animate();
+        })();
+
+
+        /* ═══════════════════════════════════════════════════════════
+           Scroll Reveal Animation
+           ═══════════════════════════════════════════════════════════ */
+        (function () {
+            const reveals = document.querySelectorAll('.reveal');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+            reveals.forEach((el) => observer.observe(el));
+        })();
+    </script>
 </body>
+
 </html>
