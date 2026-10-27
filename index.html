@@ -3,188 +3,751 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Satvik Tripathi Portfolio</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Satvik Tripathi — AI & Backend Engineer</title>
+    <meta name="description" content="Portfolio of Satvik Tripathi — AI & Backend Engineer specializing in multi-agent systems, RAG architectures, and scalable backend development.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
-        body {
+        * {
             margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: black;
-            color: white;
-        }
-        .container-fluid {
-            display: flex;
-        }
-        /* Left Frame */
-        .left-frame {
-            width: 30%;
-            background-color: #222;
-            padding: 30px;
-            text-align: center;
-        }
-        .left-frame h1 {
-            font-size: 2.0rem;
-            margin-bottom: 10px;
-        }
-        .left-frame p {
-            font-size: 1.0rem;
-            margin-bottom: 20px;
-        }
-        .left-frame .profile-links a {
-            display: inline-block;
-            margin: 15px;
-            font-size: 1.5rem;
-            color: white;
-        }
-        .left-frame hr {
-            border-color: #444;
-        }
-        /* Right Frame */
-        .right-frame {
-            width: 70%;
-            padding: 30px;
-        }
-        .section-title {
-            font-size: 2.0rem; /* Increased font size */
-            margin-bottom: 20px;
-            color: white;
-        }
-        /* Experience and Project Cards */
-        .card {
-            background-color: #333;
-            color: white;
-            margin-bottom: 20px;
-        }
-        .card-header {
-            font-weight: bold;
-            background-color: #444;
-            font-size: 1.2rem; /* Increased font size */
-        }
-        .card-body h5 {
-            font-size: 1.2rem; /* Increased font size */
-        }
-        .card-body p {
-            font-size: 0.8rem; /* Increased font size */
-        }
-        .card-body a {
-            font-size: 0.8rem; /* Increased font size */
-        }
-        .card a {
-            color: white;
-        }
-        /* Skills List */
-        .skills-list {
-            list-style-type: none;
             padding: 0;
+            box-sizing: border-box;
         }
-        .skills-list li {
+
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-card: #1a1a26;
+            --bg-card-hover: #22222f;
+            --border: #2a2a3a;
+            --text-primary: #e8e8f0;
+            --text-secondary: #9090a8;
+            --text-muted: #606078;
+            --accent: #6c63ff;
+            --accent-dim: rgba(108, 99, 255, 0.15);
+            --accent-glow: rgba(108, 99, 255, 0.3);
+            --gradient-1: linear-gradient(135deg, #6c63ff 0%, #48bfe3 100%);
+            --gradient-2: linear-gradient(135deg, #6c63ff 0%, #e040fb 100%);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        a:hover {
+            color: #8b83ff;
+        }
+
+        /* ── Layout ── */
+        .layout {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* ── Sidebar ── */
+        .sidebar {
+            width: 320px;
+            min-width: 320px;
+            background: var(--bg-secondary);
+            border-right: 1px solid var(--border);
+            padding: 48px 32px 32px;
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .sidebar-name {
+            font-size: 1.6rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 4px;
+        }
+
+        .sidebar-role {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-bottom: 24px;
+            line-height: 1.5;
+        }
+
+        .sidebar-role span {
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 600;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 32px;
+        }
+
+        .social-links a {
+            width: 38px;
+            height: 38px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            color: var(--text-secondary);
+            font-size: 1rem;
+            transition: all 0.25s;
+        }
+        .social-links a:hover {
+            color: var(--accent);
+            border-color: var(--accent);
+            background: var(--accent-dim);
+            transform: translateY(-2px);
+        }
+
+        .sidebar-divider {
+            height: 1px;
+            background: var(--border);
+            margin: 8px 0 24px;
+        }
+
+        .sidebar-section-title {
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 12px;
+        }
+
+        .about-text {
+            font-size: 0.82rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 28px;
+        }
+
+        /* Skills Tags */
+        .skill-category {
+            margin-bottom: 16px;
+        }
+
+        .skill-category-name {
+            font-size: 0.72rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            margin-bottom: 6px;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+        }
+
+        .skill-tag {
+            font-size: 0.68rem;
+            padding: 3px 9px;
+            border-radius: 6px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            color: var(--text-secondary);
+            font-family: 'JetBrains Mono', monospace;
+            transition: all 0.2s;
+            cursor: default;
+        }
+        .skill-tag:hover {
+            border-color: var(--accent);
+            color: var(--text-primary);
+            background: var(--accent-dim);
+        }
+
+        .sidebar-footer {
+            margin-top: auto;
+            padding-top: 24px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.78rem;
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+        }
+        .contact-item i {
+            color: var(--text-muted);
+            width: 16px;
+            text-align: center;
+            font-size: 0.75rem;
+        }
+
+        /* ── Main Content ── */
+        .main {
+            flex: 1;
+            padding: 48px 56px;
+            max-width: 920px;
+        }
+
+        .section {
+            margin-bottom: 56px;
+        }
+
+        .section-heading {
+            font-size: 1.3rem;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+            margin-bottom: 28px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-heading::before {
+            content: '';
+            width: 4px;
+            height: 22px;
+            background: var(--gradient-1);
+            border-radius: 2px;
+        }
+
+        /* ── Experience Cards ── */
+        .exp-timeline {
+            position: relative;
+            padding-left: 24px;
+        }
+
+        .exp-timeline::before {
+            content: '';
+            position: absolute;
+            left: 5px;
+            top: 8px;
+            bottom: 8px;
+            width: 1px;
+            background: var(--border);
+        }
+
+        .exp-item {
+            position: relative;
+            margin-bottom: 32px;
+        }
+
+        .exp-item::before {
+            content: '';
+            position: absolute;
+            left: -24px;
+            top: 8px;
+            width: 11px;
+            height: 11px;
+            border-radius: 50%;
+            border: 2px solid var(--accent);
+            background: var(--bg-primary);
+            z-index: 1;
+        }
+
+        .exp-item:first-child::before {
+            background: var(--accent);
+            box-shadow: 0 0 8px var(--accent-glow);
+        }
+
+        .exp-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 4px;
+        }
+
+        .exp-company {
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .exp-duration {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .exp-role {
+            font-size: 0.82rem;
+            color: var(--accent);
+            font-weight: 500;
             margin-bottom: 10px;
-            font-size: 1.0rem; /* Slight increase in font size */
         }
-        .card-img-top {
-            height: auto;
-            width: 100%;
+
+        .exp-project {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 16px 18px;
+            margin-bottom: 10px;
+            transition: all 0.25s;
         }
-        .skills-list {
-            list-style-type: none;
+        .exp-project:hover {
+            border-color: rgba(108, 99, 255, 0.3);
+            background: var(--bg-card-hover);
+        }
+
+        .exp-project-name {
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--text-primary);
+        }
+
+        .exp-project ul {
+            list-style: none;
             padding: 0;
         }
 
-        .skills-list li {
-            margin-bottom: 10px;
-            font-size: 0.8rem; /* Matching font size with other body text */
+        .exp-project li {
+            font-size: 0.78rem;
+            color: var(--text-secondary);
+            padding-left: 16px;
+            position: relative;
+            margin-bottom: 5px;
+            line-height: 1.6;
+        }
+
+        .exp-project li::before {
+            content: '›';
+            position: absolute;
+            left: 2px;
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        .exp-cert-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            margin-top: 6px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: var(--accent);
+            opacity: 0.8;
+            transition: opacity 0.2s;
+        }
+        .exp-cert-link:hover {
+            opacity: 1;
+        }
+
+        /* ── Old Project Card (De-emphasized) ── */
+        .project-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+        .project-card:hover {
+            border-color: rgba(108, 99, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .project-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-bottom: 1px solid var(--border);
+            opacity: 0.85;
+            transition: opacity 0.3s;
+        }
+        .project-card:hover img {
+            opacity: 1;
+        }
+
+        .project-card-body {
+            padding: 20px;
+        }
+
+        .project-card-body h4 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .project-card-body p {
+            font-size: 0.78rem;
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+            line-height: 1.6;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 10px;
+            margin-top: 14px;
+        }
+
+        .btn-sm {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 7px 14px;
+            border-radius: 8px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            border: 1px solid var(--border);
+            background: var(--bg-card);
+            color: var(--text-secondary);
+            transition: all 0.2s;
+            cursor: pointer;
+        }
+        .btn-sm:hover {
+            color: var(--text-primary);
+            border-color: var(--accent);
+            background: var(--accent-dim);
+        }
+
+        /* ── Certifications ── */
+        .cert-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .cert-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid var(--border);
+            font-size: 0.82rem;
+        }
+        .cert-list li:last-child {
+            border-bottom: none;
+        }
+
+        .cert-list li a {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-secondary);
+            transition: color 0.2s;
+        }
+        .cert-list li a:hover {
+            color: var(--accent);
+        }
+        .cert-list li a i {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+        }
+
+        /* ── Education ── */
+        .edu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 12px;
+        }
+
+        .edu-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 16px 18px;
+            transition: border-color 0.2s;
+        }
+        .edu-card:hover {
+            border-color: rgba(108, 99, 255, 0.3);
+        }
+
+        .edu-degree {
+            font-size: 0.82rem;
+            font-weight: 600;
+            margin-bottom: 3px;
+        }
+
+        .edu-school {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            margin-bottom: 2px;
+        }
+
+        .edu-meta {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        /* ── Responsive ── */
+        @media (max-width: 900px) {
+            .layout {
+                flex-direction: column;
+            }
+            .sidebar {
+                width: 100%;
+                min-width: unset;
+                height: auto;
+                position: relative;
+                padding: 32px 24px;
+            }
+            .main {
+                padding: 32px 24px;
+            }
+            .exp-header {
+                flex-direction: column;
+                gap: 2px;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container-fluid">
-        <!-- Left Frame -->
-        <div class="left-frame">
-            <h1>Satvik Tripathi</h1>
-            <p>Final Year ECE Student @ MMMUT, Gorakhpur</p>
-            <div class="profile-links">
-                <a href="https://www.linkedin.com/in/satvik-tripathi-3b6579237/" target="_blank"><i class="fab fa-linkedin"></i></a>
-                <a href="https://github.com/SatvikTripathi" target="_blank"><i class="fab fa-github"></i></a>
-                <a href="https://www.kaggle.com/satviktripathi" target="_blank"><i class="fab fa-kaggle"></i></a>
-            </div>
-            <hr>
-            <h3>About Me</h3>
-            <p>I am a final-year Electronics and Communications Engineering undergraduate at Madan Mohan Malaviya University of Technology, Gorakhpur, with hands-on experience in Deep Learning, Natural Language Processing (NLP), Data Science, and GIS.  I am passionate about applying AI/ML to develop solutions to real world problems.</p>
-            <hr>
-            <h3>Skills</h3>
-            <ul class="skills-list">
-                <li>Python</li>
-                <li>TensorFlow & Keras</li>
-                <li>Machine Learning</li>
-                <li>Deep Learning</li>
-                <li>Natural Language Processing</li>
-                <li>Data Visualization</li>
-                <li>DBMS</li>
-            </ul>
-        </div>
+    <div class="layout">
+        <!-- ── Sidebar ── -->
+        <aside class="sidebar">
+            <h1 class="sidebar-name">Satvik Tripathi</h1>
+            <p class="sidebar-role"><span>AI & Backend Engineer</span> at Logipod Logistics & SIHO Research</p>
 
-        <!-- Right Frame -->
-        <div class="right-frame">
-            <!-- Experience Section -->
-            <h3 class="section-title">Experience</h3>
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="card">
-                        <div class="card-header">Space Applications Center, ISRO</div>
-                        <div class="card-body">
-                            <h5 class="card-title">Research Intern</h5>
-                            <p class="card-text">Duration: June 2024 - August 2024</p>
-                            <p class="card-text">Developed an end-to-end deep learning-based image segmentation system for extraction of scattered built-up areas from the coastal state of Goa, achieving 96% IoU.</p>
-                            <p class="card-text">Got hands on experience of GIS concepts while working, preparing and pre-processing satellite images with GIS tools like ArcGIS & QGIS.</p>
-                            <p class="card-text">Built and implemented U-Net-based Attention U-Net, GAN U-Net, and MultiRes U-Net models, enhancing the performance of the pre-existing model (IoU 70%) as well as data provided by Environmental Systems Research Institute, Inc. (ESRI).</p>
-                            <a href="https://drive.google.com/file/d/1eHzwL2FMjMzuR9OiPdFDBFPR7DUS7F_X/view" class="btn btn-primary" target="_blank">Certificate</a>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/satvik-tripathi-3b6579237/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://github.com/SatvikTripathi" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://www.kaggle.com/satviktripathi" target="_blank" title="Kaggle"><i class="fab fa-kaggle"></i></a>
+                <a href="mailto:199tripathis@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+            </div>
+
+            <div class="sidebar-divider"></div>
+
+            <p class="sidebar-section-title">About</p>
+            <p class="about-text">
+                AI & Backend Engineer with a B.Tech in Electronics and Communication Engineering from MMMUT, Gorakhpur. I build multi-agent RAG systems, LLM-driven automation pipelines, and scalable Flask/FastAPI backends. Experienced across the stack — from NLP extraction engines and real-time APIs to deployment on Azure.
+            </p>
+
+            <div class="sidebar-divider"></div>
+
+            <p class="sidebar-section-title">Skills</p>
+
+            <div class="skill-category">
+                <p class="skill-category-name">Languages</p>
+                <div class="skill-tags">
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">SQL</span>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <p class="skill-category-name">Backend</p>
+                <div class="skill-tags">
+                    <span class="skill-tag">FastAPI</span>
+                    <span class="skill-tag">Flask</span>
+                    <span class="skill-tag">Django</span>
+                    <span class="skill-tag">REST APIs</span>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <p class="skill-category-name">ML & Data Science</p>
+                <div class="skill-tags">
+                    <span class="skill-tag">Machine Learning</span>
+                    <span class="skill-tag">Deep Learning</span>
+                    <span class="skill-tag">NLP</span>
+                    <span class="skill-tag">Computer Vision</span>
+                    <span class="skill-tag">Time Series</span>
+                    <span class="skill-tag">TensorFlow</span>
+                    <span class="skill-tag">Keras</span>
+                    <span class="skill-tag">Scikit-learn</span>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <p class="skill-category-name">GenAI & Agents</p>
+                <div class="skill-tags">
+                    <span class="skill-tag">Agentic AI</span>
+                    <span class="skill-tag">Multi-Agent Systems</span>
+                    <span class="skill-tag">LangChain</span>
+                    <span class="skill-tag">LangGraph</span>
+                    <span class="skill-tag">RAG</span>
+                    <span class="skill-tag">MCP</span>
+                    <span class="skill-tag">Prompt Engineering</span>
+                    <span class="skill-tag">Gemini / OpenAI / Groq</span>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <p class="skill-category-name">Databases</p>
+                <div class="skill-tags">
+                    <span class="skill-tag">PostgreSQL</span>
+                    <span class="skill-tag">MySQL</span>
+                    <span class="skill-tag">Redis</span>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <p class="skill-category-name">Tools</p>
+                <div class="skill-tags">
+                    <span class="skill-tag">Git</span>
+                    <span class="skill-tag">GitHub</span>
+                    <span class="skill-tag">Azure</span>
+                    <span class="skill-tag">ArcGIS</span>
+                    <span class="skill-tag">QGIS</span>
+                </div>
+            </div>
+
+            <div class="sidebar-footer">
+                <div class="sidebar-divider"></div>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <span>+91 9958494593</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>199tripathis@gmail.com</span>
+                </div>
+            </div>
+        </aside>
+
+        <!-- ── Main Content ── -->
+        <main class="main">
+
+            <!-- Experience -->
+            <section class="section" id="experience">
+                <h2 class="section-heading">Experience</h2>
+
+                <div class="exp-timeline">
+
+                    <!-- Logipod / SIHO -->
+                    <div class="exp-item">
+                        <div class="exp-header">
+                            <span class="exp-company">Logipod Logistics Pvt. Ltd. & SIHO Research Pvt. Ltd.</span>
+                            <span class="exp-duration">Dec 2024 – Present</span>
+                        </div>
+                        <div class="exp-role">AI & Backend Engineer (Internship + Full time)</div>
+
+                        <div class="exp-project">
+                            <div class="exp-project-name">Multi-Agent Financial RAG System <span style="font-weight:400;color:var(--text-muted);font-size:0.78rem;">— SIHO Research</span></div>
+                            <ul>
+                                <li>Designed a <strong>multi-agent RAG architecture</strong> (Query, Retriever, Ranker, Answer, Evaluator, Planner) enabling deep reasoning over 7000+ financial documents.</li>
+                                <li>Achieved industry-standard document retrieval accuracy using LLM-based query parsing, cosine similarity search, and semantic ranking.</li>
+                                <li>Optimized embedding generation pipeline with concurrent API calls and chunk merging, reducing OpenAI API costs by ~60%.</li>
+                                <li>Delivered Flask REST APIs with real-time streaming and multi-company query support for financial research automation.</li>
+                            </ul>
+                        </div>
+
+                        <div class="exp-project">
+                            <div class="exp-project-name">Customer-Facing Investment Platform <span style="font-weight:400;color:var(--text-muted);font-size:0.78rem;">— SIHO Research</span></div>
+                            <ul>
+                                <li>Developed Flask REST APIs (40+ endpoints) delivering real-time portfolio tracking, automated P&L, and category-wise allocation analysis for 200+ users.</li>
+                                <li>Integrated Angel One SmartAPI to enable live market order placement directly from the platform.</li>
+                            </ul>
+                        </div>
+
+                        <div class="exp-project">
+                            <div class="exp-project-name">Transport Management System ATLAS <span style="font-weight:400;color:var(--text-muted);font-size:0.78rem;">— Logipod Logistics</span></div>
+                            <ul>
+                                <li>Engineered a modular Flask + PostgreSQL backend (350+ APIs) managing 10,000+ logistics records, deployed on Azure; implemented hierarchical RBAC — first TMS in the space with this permissions model.</li>
+                                <li>Built concurrency-safe LR allocation using atomic transactions, eliminating LR duplication, and added PGTRM-based indexing making the application 60% faster.</li>
+                                <li>Automated PDF generation and archival using LibreOffice and Azure Blob Storage, cutting manual document processing time by 70%.</li>
+                            </ul>
+                        </div>
+
+                        <div class="exp-project">
+                            <div class="exp-project-name">Indent Agent — LLM-Driven Booking Automation <span style="font-weight:400;color:var(--text-muted);font-size:0.78rem;">— Logipod Logistics</span></div>
+                            <ul>
+                                <li>Architected an end-to-end LLM-driven automation agent (Flask, LangChain) converting unstructured WhatsApp/email transport requests into live TMS bookings, eliminating manual order entry for ~70% of inbound requests.</li>
+                                <li>Implemented a multi-stage NLP extraction pipeline for freeform, multilingual trucking messages — achieving ~85% extraction accuracy across 50+ real-world messages.</li>
+                                <li>Designed a rules-based pricing engine cross-referencing live client/rate/vehicle master data, cutting manual rate-lookup effort by ~60%.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- ISRO -->
+                    <div class="exp-item">
+                        <div class="exp-header">
+                            <span class="exp-company">Space Applications Centre, ISRO</span>
+                            <span class="exp-duration">Jun 2024 – Aug 2024</span>
+                        </div>
+                        <div class="exp-role">Research Intern</div>
+
+                        <div class="exp-project">
+                            <ul>
+                                <li>Developed an end-to-end deep learning-based image segmentation system for extraction of scattered built-up areas from the coastal state of Goa, achieving <strong>96% IoU</strong>.</li>
+                                <li>Designed and implemented U-Net-based Attention U-Net, GAN U-Net, and MultiRes U-Net models, enhancing the performance of the pre-existing model (IoU 70%) as well as data provided by ESRI.</li>
+                                <li>Learned and applied concepts of GIS and got hands-on experience with working, preparing and pre-processing satellite images.</li>
+                            </ul>
+                            <a href="https://drive.google.com/file/d/1eHzwL2FMjMzuR9OiPdFDBFPR7DUS7F_X/view" class="exp-cert-link" target="_blank"><i class="fas fa-certificate"></i> View Certificate</a>
+                        </div>
+                    </div>
+
+                    <!-- Deep Dive -->
+                    <div class="exp-item">
+                        <div class="exp-header">
+                            <span class="exp-company">Deep Dive Consulting</span>
+                            <span class="exp-duration">Feb 2024 – May 2024</span>
+                        </div>
+                        <div class="exp-role">Data Science Intern</div>
+
+                        <div class="exp-project">
+                            <ul>
+                                <li>Built a sentiment analysis pipeline on Selenium-scraped Google Reviews — text preprocessing, LDA topic modeling, and word-cloud visualizations to surface key user sentiment themes.</li>
+                            </ul>
+                            <a href="https://drive.google.com/file/d/1FhImEjh_-F6tu5N5hj4obc1pJ3i9AdEe/view?usp=sharing" class="exp-cert-link" target="_blank"><i class="fas fa-certificate"></i> View Certificate</a>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- Education -->
+            <section class="section" id="education">
+                <h2 class="section-heading">Education</h2>
+                <div class="edu-grid">
+                    <div class="edu-card">
+                        <div class="edu-degree">B.Tech — ECE</div>
+                        <div class="edu-school">MMMUT, Gorakhpur</div>
+                        <div class="edu-meta">2021–2025 · 8.68 / 10.0</div>
+                    </div>
+                    <div class="edu-card">
+                        <div class="edu-degree">Class XII (CBSE)</div>
+                        <div class="edu-school">Amity International School, Vasundara</div>
+                        <div class="edu-meta">2020 · 94.2%</div>
+                    </div>
+                    <div class="edu-card">
+                        <div class="edu-degree">Class X (CBSE)</div>
+                        <div class="edu-school">Delhi Public School, Katni</div>
+                        <div class="edu-meta">2018 · 94.6%</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Project (de-emphasized) -->
+            <section class="section" id="projects">
+                <h2 class="section-heading">Side Project</h2>
+                <div class="project-card" style="max-width: 480px;">
+                    <img src="screenshots/book recommeder 2.png" alt="Book Recommender System screenshot">
+                    <div class="project-card-body">
+                        <h4>Book Recommender System</h4>
+                        <p>A Flask-based recommender combining popularity-based ranking (top 100 books of all time) and collaborative filtering to suggest similar books. Built on a Kaggle dataset of 1.1M+ ratings across 271K books.</p>
+                        <div class="project-links">
+                            <a href="https://github.com/SatvikTripathi/Book-Recommender-System" class="btn-sm" target="_blank"><i class="fab fa-github"></i> Repo</a>
+                            <a href="https://book-recommender-system-8oig.onrender.com" class="btn-sm" target="_blank"><i class="fas fa-external-link-alt"></i> Live</a>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6">
-                    <div class="card">
-                        <div class="card-header">Deep Dive Consulting</div>
-                        <div class="card-body">
-                            <h5 class="card-title">Data Science Intern</h5>
-                            <p class="card-text">Duration: February 2024 - May 2024</p>
-                            <p class="card-text">Worked on a project involving the development of a sentiment analysis model based on Google Reviews collected through web scraping tools like Selenium.</p>
-                            <p class="card-text">The reviews were pre-processed using various text preprocessing techniques, like removing stop words, punctuations and special characters, followed by tokenization and lemmatization.</p>
-                            <p class="card-text"> Latent Dirichlet Allocation (LDA) was applied to uncover hidden topics in the reviews then, Word Clouds and other visualizations were created to display the most frequent and significant terms in the reviews, giving a clear picture of user sentiment.</p>
-                            <a href="https://drive.google.com/file/d/1FhImEjh_-F6tu5N5hj4obc1pJ3i9AdEe/view?usp=sharing" class="btn btn-primary" target="_blank">Certificate</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            </section>
 
-            <!-- Project Section -->
-            <h3 class="section-title">Project</h3>
-            <div class="card">
-                <img src="screenshots\book recommeder 2.png" class="card-img-top" alt="Project Image">
-                <div class="card-body">
-                    <h5 class="card-title">Book Recommder System</h5>
-                    <p class="card-text">Developed a Book Recommender System that provides personalized book recommendations to users based on two different approaches:
-                        <ul class="skills-list">
-                        <li>Popularity-Based Recommender: Displaying top 100 highest rated books of all time.</li>
-                        <li>Collaborative Filtering-Based Recommender: Helping the user find a list of books most similar to a book of their liking.</li>
-                        </ul>
-                    </p>
-                    <p class="card-text"><a href="https://www.kaggle.com/datasets/arashnic/book-recommendation-dataset">Book-recommendation-dataset</a> from kaggle, containing 1,149,780 ratings (explicit / implicit) on 271,379 books by 278,858 users has been used in this project to build both systems.</p>
-                    <p class="card-text">Utilized Python, Flask for web development, Pandas and NumPy for data manipulation, and Scikit-learn for implementing collaborative filtering algorithms. The system is deployed using Flask to create an intuitive, user-friendly interface.</p>
-                    <p class="card-text"> The system is deployed as a web application, allowing users to interact with the model through a simple Flask-based interface. Integrated GitHub for version control and ensured scalability for larger datasets in future iterations.</p>
-                    <a href="https://github.com/SatvikTripathi/Book-Recommender-System" class="btn btn-primary" target="_blank">GitHub Repo</a>
-                    <a href="https://book-recommender-system-8oig.onrender.com" class="btn btn-primary" target="_blank">Live</a>
-                </div>
-            </div>
+            <!-- Certifications -->
+            <section class="section" id="certifications">
+                <h2 class="section-heading">Certifications</h2>
+                <ul class="cert-list">
+                    <li><a href="https://drive.google.com/file/d/1MACAVJ766XryJanRJqGoYZ7oX2BZAAD8/view?usp=drive_link" target="_blank"><i class="fas fa-arrow-right"></i> Unsupervised Learning, Recommenders, Reinforcement Learning — Coursera</a></li>
+                    <li><a href="https://drive.google.com/file/d/17WltnbDowpR6rOOmnPwbqOlzDIKHX4jI/view?usp=sharing" target="_blank"><i class="fas fa-arrow-right"></i> Advanced Learning Algorithms — Coursera</a></li>
+                    <li><a href="https://drive.google.com/file/d/17WltnbDowpR6rOOmnPwbqOlzDIKHX4jI/view?usp=sharing" target="_blank"><i class="fas fa-arrow-right"></i> GDSC — AI/ML Cyber Security Team</a></li>
+                </ul>
+            </section>
 
-            <!-- Certifications Section -->
-            <h3 class="section-title">Certifications</h3>
-            <ul>
-                <li><a href="https://drive.google.com/file/d/1MACAVJ766XryJanRJqGoYZ7oX2BZAAD8/view?usp=drive_link" target="_blank">Coursera: Unsupervised Learning, Recommenders, Reinforcement Learning</a></li>
-                <li><a href="https://drive.google.com/file/d/17WltnbDowpR6rOOmnPwbqOlzDIKHX4jI/view?usp=sharing" target="_blank">Coursera: Advanced Learning Algorithms</a></li>
-                <li><a href="https://drive.google.com/file/d/17WltnbDowpR6rOOmnPwbqOlzDIKHX4jI/view?usp=sharing" target="_blank">GDSC: AI/ML Cyber Security Team </a></li>
-            </ul>
-        </div>
+        </main>
     </div>
 </body>
 </html>
